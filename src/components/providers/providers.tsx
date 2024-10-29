@@ -3,6 +3,7 @@
 import React from 'react'
 import { ClerkProvider } from '@clerk/nextjs'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SidebarProvider } from "@/components/ui/sidebar"
 
 interface Props {
     children: React.ReactNode;
@@ -15,7 +16,9 @@ const Providers = ({ children }: Props) => {
     return (
         <QueryClientProvider client={client}>
             <ClerkProvider>
-                {children}
+                <SidebarProvider>
+                    {children}
+                </SidebarProvider>
             </ClerkProvider>
         </QueryClientProvider>
     )
